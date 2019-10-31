@@ -1,0 +1,29 @@
+version: 2
+jobs:
+  build:
+    docker:
+    - image: tiryoh/ubuntu:dev-bionic
+    steps:
+    - checkout
+    - run:
+        name: Install Step 0
+        command: ./step0.bash
+    - run:
+        name: Install Step 1
+        command: ./step1.bash
+
+workflows:
+  version: 2
+  commit-workflow:
+    jobs:
+      - build
+  scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "0 1 * * 1"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
