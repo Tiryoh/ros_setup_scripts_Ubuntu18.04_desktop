@@ -17,12 +17,13 @@ ls /etc/ros/rosdep/sources.list.d/20-default.list && sudo rm /etc/ros/rosdep/sou
 sudo rosdep init 
 rosdep update
 
-sudo apt install -y python-rosinstall
-sudo apt install -y build-essential
-sudo apt install -y rviz
+sudo apt install -y python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools
 
 grep -F "source /opt/ros/$ROS_VER/setup.bash" ~/.bashrc ||
 echo "source /opt/ros/$ROS_VER/setup.bash" >> ~/.bashrc
+
+grep -F `catkin locate --shell-verbs` ~/.bashrc ||
+echo "source `catkin locate --shell-verbs`" >> ~/.bashrc
 
 grep -F "ROS_MASTER_URI" ~/.bashrc ||
 echo "export ROS_MASTER_URI=http://localhost:11311" >> ~/.bashrc
