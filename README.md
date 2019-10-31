@@ -1,6 +1,6 @@
 # ros_setup_scripts_Ubuntu18.04
 
-ROS (Lunar Loggerhead) setup scripts for Ubuntu 18.04
+ROS (Melodic Morenia) setup scripts for Ubuntu 18.04
 
 # scripts
 
