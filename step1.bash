@@ -17,7 +17,7 @@ ls /etc/ros/rosdep/sources.list.d/20-default.list && sudo rm /etc/ros/rosdep/sou
 sudo rosdep init 
 rosdep update
 
-sudo apt install -y python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools
+sudo apt install -y python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools python3-vcstool
 
 grep -F "source /opt/ros/$ROS_VER/setup.bash" ~/.bashrc ||
 echo "source /opt/ros/$ROS_VER/setup.bash" >> ~/.bashrc
